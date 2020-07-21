@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
-const {token, prefix} = require('./config.json');
+const {prefix} = require('./config.json');
 var dotenv = require('dotenv');
 dotenv.config();
 
 
 const client = new Discord.Client();
 const ytdl  = require('ytdl-core');
-
+const token = process.env.BOT_token;
 
 
 const queue = new Map();
