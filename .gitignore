@@ -1,4 +1,4 @@
 .env
+/node_modules
 msc.mp3
 ffmpeg.exe
-/node_modules
