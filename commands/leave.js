@@ -1,7 +1,7 @@
 require('./join');
 module.exports = {
     name: "leave",
-    description: "Faz com que o bot se desconecte do canal que você está",
+    description: "Desconecta o bot do canal que você está",
     async execute(message){
         const voiceChannel =  message.member.voice.channel;
         const queue = message.client.queue;
