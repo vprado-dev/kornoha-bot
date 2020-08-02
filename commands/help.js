@@ -2,7 +2,7 @@ const fs = require('fs')
 
 module.exports = {
 	name: 'help',
-	description: 'Mostra os commandos disponíveis.',
+	description: 'Mostra os comandos disponíveis.',
 	execute(message) {
 		let str = '';
 		const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
