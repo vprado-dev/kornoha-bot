@@ -2,6 +2,7 @@ module.exports = {
     name : "pause",
     description : "Pausa a música que está tocando",
     execute(message){
+        message.react('⏸️');
         const serverQueue = message.client.queue.get(message.guild.id);
         if(serverQueue && serverQueue.playing){
             serverQueue.playing = false;
