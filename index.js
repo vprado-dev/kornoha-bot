@@ -46,6 +46,10 @@ client.on('message', async message =>{
         return;
     }
 
+    if(message.channel.name != "comandos"){
+        return message.reply("Comando é no canal comandos né meu brother");
+    }
+
     try{
         if(nomeComando == "kick" || nomeComando == "userinfo"){
             comando.execute(message, client);
