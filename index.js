@@ -10,6 +10,7 @@ const token = process.env.BOT_token;
 
 
 const client = new Client();
+client.options.http.api = "https://discord.com/api"
 client.commands = new Discord.Collection();
 
 
@@ -22,7 +23,8 @@ for(const arq of commandArqs){
 }
 
 client.once('ready', () => {
-	console.log('Pronto!');
+    client.user.setActivity("!help para ver os comandos");
+    console.log('Pronto!');
 });
 
 client.once('reconnecting', () =>{
@@ -38,7 +40,6 @@ client.on('message', async message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const nomeComando = args.shift().toLowerCase();
     const comando = client.commands.get(nomeComando);
-    
     if(message.author.bot){
         return;
     }
@@ -46,9 +47,9 @@ client.on('message', async message =>{
         return;
     }
 
-    if(message.channel.name != "comandos"){
-        return message.reply("Comando é no canal comandos né meu brother");
-    }
+    // if(message.channel.name != "comandos"){
+    //     return message.reply("Comando é no canal comandos né meu brother");
+    // }
 
     try{
         if(nomeComando == "kick" || nomeComando == "userinfo"){
