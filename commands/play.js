@@ -21,7 +21,8 @@ module.exports = {
             );
           }
     
-          const songInfo = await ytdl.getInfo(args[1]);
+          const songInfo = await ytdl.getInfo(args[1], '$1');
+          // await ytdl.getInfo(); ytdl.getBasicInfo(args[1]);
           const song = {
             title: songInfo.videoDetails.title,
             url: songInfo.videoDetails.video_url
@@ -59,7 +60,7 @@ module.exports = {
         } catch (error) {
           console.log(error);
           message.channel.send(error.message);
-        }
+        } 
       },
     
       play(message, song) {

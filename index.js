@@ -36,7 +36,7 @@ client.once('disconnect', () =>{
 });
 
 
-client.on('message', async message =>{
+client.on('message',async message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const nomeComando = args.shift().toLowerCase();
     const comando = client.commands.get(nomeComando);
@@ -54,8 +54,6 @@ client.on('message', async message =>{
     try{
         if(nomeComando == "kick" || nomeComando == "userinfo"){
             comando.execute(message, client);
-        }else if(nomeComando == "search"){
-            comando.execute(message, args);
         }else{
             comando.execute(message);
         }
