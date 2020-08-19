@@ -52,7 +52,7 @@ client.on('message',async message =>{
     // }
 
     try{
-        if(nomeComando == "kick" || nomeComando == "userinfo"){
+        if(nomeComando == "kick" || nomeComando == "userinfo" || nomeComando == "vtnc"){
             comando.execute(message, client);
         }else{
             comando.execute(message);
