@@ -3,7 +3,6 @@ module.exports = {
     description: "Faz com que o bot entre no canal de voz que você está conectado",
     async execute(message){
         const voiceChannel =  message.member.voice.channel;
-
         if(!voiceChannel)
             return message.channel.send(
                 "Você precisa estar conectado a um canal de voz né amigão"

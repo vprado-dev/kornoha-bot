@@ -2,7 +2,7 @@ const ytdl = require("ytdl-core");
 
 module.exports = {
     name: "play",
-    description: "Toca música no canal que você está!",
+    description: "Toca música no canal que você está! - ***Temporariamente desabilitado***",
     async execute(message) {
         try {
           const args = message.content.split(" ");
