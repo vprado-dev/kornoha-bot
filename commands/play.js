@@ -4,7 +4,8 @@ module.exports = {
     name: "play",
     description: "Toca música no canal que você está! - ***Temporariamente desabilitado***",
     async execute(message) {
-        try {
+      return(message.channel.send('Este comando está temporariamente desabilidado amigo, foi mal 😔'))
+      try {
           const args = message.content.split(" ");
           const queue = message.client.queue;
           const serverQueue = message.client.queue.get(message.guild.id);
