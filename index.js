@@ -14,7 +14,6 @@ client.options.http.api = "https://discord.com/api"
 client.commands = new Discord.Collection();
 
 
-
 const commandArqs = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for(const arq of commandArqs){
@@ -46,13 +45,15 @@ client.on('message',async message =>{
     if( !message.content.startsWith(prefix) ){
         return;
     }
-
-    if(message.channel.name != "comandos"){
-        return message.reply("Comando é no canal comandos né meu brother");
-    }
-
+    //ECONOMIZAR DADOS DA API HEROKU
+    // if(message.channel.name != "comandos"){ 
+    //     return message.reply("Comando é no canal comandos né meu brother")
+    //     .then(msg =>{
+    //         msg.delete({ timeout: 5000 });
+    //     });
+    // }
     try{
-        if(nomeComando == "kick" || nomeComando == "userinfo" || nomeComando == "vtnc"){
+        if(nomeComando == "kick" || nomeComando == "userinfo" || nomeComando == "vtnc" ){
             comando.execute(message, client);
         }else{
             comando.execute(message);
@@ -61,6 +62,10 @@ client.on('message',async message =>{
         console.error(erro);
         message.reply('Não foi possível executar o comando.');
     }
+});
+
+client.on('guildMemberAdd', member =>{
+    console.log(`User: ${member.user.username} has joined in the server!`);
 });
 
 client.login(token);
