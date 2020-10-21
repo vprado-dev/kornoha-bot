@@ -22,7 +22,7 @@ for(const arq of commandArqs){
 }
 
 client.once('ready', () => {
-    client.user.setActivity("!help para ver os comandos");
+    // client.user.setActivity("!help para ver os comandos"); Acho que economiza uns dados da api
     console.log('Pronto!');
 });
 
@@ -53,7 +53,8 @@ client.on('message',async message =>{
     //     });
     // }
     try{
-        if(nomeComando == "kick" || nomeComando == "userinfo" || nomeComando == "vtnc" ){
+        if(nomeComando == "kick" || nomeComando == "userinfo" || nomeComando == "vtnc" ||
+          nomeComando == "poll" || nomeComando == "pickwin"){
             comando.execute(message, client);
         }else{
             comando.execute(message);
