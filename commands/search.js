@@ -4,7 +4,7 @@ module.exports ={
     name: "search",
     description: "Procura um título de um vídeo no YouTube - ***Temporariamente desabilitado***",
     execute(message){
-        return(message.channel.send('Este comando está temporariamente desabilidado amigo, foi mal 😔'))
+        return(message.channel.send('Este comando está temporariamente desabilidado amigo, foi mal 😔'));
         if(!runningFlag){
             const args = message.content.slice('!'.length).split(/ +/);
             args.shift().toLowerCase();
