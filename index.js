@@ -6,11 +6,11 @@ const {
 } = require('./config.json');
 var dotenv = require('dotenv');
 dotenv.config();
-const token = process.env.BOT_token;
+const token = process.env.BOT_TOKEN;
 
 
 const client = new Client();
-client.options.http.api = "https://discord.com/api"
+client.options.http.api = "https://discord.com/api";
 client.commands = new Discord.Collection();
 
 
@@ -22,7 +22,7 @@ for(const arq of commandArqs){
 }
 
 client.once('ready', () => {
-    // client.user.setActivity("!help para ver os comandos"); Acho que economiza uns dados da api
+    client.user.setActivity('Novo prefixo "k!"'); //Acho que economiza uns dados da api
     console.log('Pronto!');
 });
 
@@ -45,13 +45,6 @@ client.on('message',async message =>{
     if( !message.content.startsWith(prefix) ){
         return;
     }
-    //ECONOMIZAR DADOS DA API HEROKU
-    // if(message.channel.name != "comandos"){ 
-    //     return message.reply("Comando é no canal comandos né meu brother")
-    //     .then(msg =>{
-    //         msg.delete({ timeout: 5000 });
-    //     });
-    // }
     try{
         if(nomeComando == "kick" || nomeComando == "userinfo" || nomeComando == "vtnc" ||
           nomeComando == "poll" || nomeComando == "pickwin"){
@@ -67,6 +60,8 @@ client.on('message',async message =>{
 
 client.on('guildMemberAdd', member =>{
     console.log(`User: ${member.user.username} has joined in the server!`);
+    let role = member.guild.roles.cache.find(r => r.name === "Toki");
+    member.roles.add(role);
 });
 
 client.login(token);
